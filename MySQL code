@@ -1,0 +1,20 @@
+CREATE DATABASE plant_health;
+USE plant_health;
+
+CREATE TABLE plants (
+  plant_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50),
+  species VARCHAR(50),
+  ideal_water_gap INT,
+  ideal_sunlight VARCHAR(20)
+);
+
+CREATE TABLE plant_logs (
+  log_id INT PRIMARY KEY AUTO_INCREMENT,
+  plant_id INT,
+  date DATE,
+  watered TINYINT,
+  sunlight_hrs INT,
+  soil_moisture INT,
+  FOREIGN KEY (plant_id) REFERENCES plants(plant_id)
+);
